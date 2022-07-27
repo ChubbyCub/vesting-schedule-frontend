@@ -19,19 +19,18 @@ const Home: NextPage = () => {
   const equityAwards = data as EquityAward[];
 
   return (
-    <div className="w-full max-w-md px-2 py-16 sm:px-0">
+    <div className="w-auto font-sans p-10">
       <Tab.Group>
-        <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+        <Tab.List className="flex space-x-10 p-1">
           {equityAwards.map((award) => (
             <Tab
               key={award.label}
               className={({ selected }) =>
                 classNames(
-                  'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
-                  'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                  'py-2.5 text-md font-medium leading-5 text-blue-700',
                   selected
-                    ? 'bg-white shadow'
-                    : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                    ? 'underline underline-offset-8 decoration-4 focus:outline-none'
+                    : 'text-blue-100'
                 )
               }
             >
@@ -39,15 +38,13 @@ const Home: NextPage = () => {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="mt-2">
+        <Tab.Panels className="mt-2 w-full">
           {equityAwards.map((award) => (
             <Tab.Panel
               key={award.label}
-              className={classNames(
-                'rounded-xl bg-white p-3',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
-              )}
+              className='bg-white w-full'
             >
+              <header className='font-bold mt-4 mb-9'>{award.vesting_manager_name}</header>
               <VestingSchedule schedule={award.vesting_schedule} />
             </Tab.Panel>
           ))}

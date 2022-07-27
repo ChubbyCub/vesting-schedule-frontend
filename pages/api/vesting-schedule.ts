@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { mockEquityAwards } from '../../fixtures/mockData';
 import { formatDate, formatNumShares } from '../../libs/helpers';
-import { EquityAward, VestingItem } from '../../libs/model';
+import { EquityAward } from '../../libs/model';
 
 export default function handler(
   req: NextApiRequest,

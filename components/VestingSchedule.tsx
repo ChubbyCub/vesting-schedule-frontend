@@ -7,11 +7,10 @@ interface VestingScheduleProps {
 }
 
 export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule }) => {
-  console.log(schedule);
   return (
-    <table>
-      <thead>
-        <tr>
+    <table className='table-auto w-full'>
+      <thead className='text-left'>
+        <tr className=''>
           <th>Vesting date</th>
           <th>Shares vesting</th>
           <th>Cumulative shares vested</th>
@@ -20,7 +19,7 @@ export const VestingSchedule: React.FC<VestingScheduleProps> = ({ schedule }) =>
       <tbody>
         {schedule.map((item) => {
           return (
-            <tr key={uuidv4()}>
+            <tr key={uuidv4()} className=''>
               <td>{item.vesting_date}</td>
               <td>{item.amount}</td>
               <td>{item.cumulative_amount}</td>
